@@ -1,16 +1,21 @@
-# This is a sample Python script.
+import os
+import json
+import requests
+import yadisk
 
-# Press Ctrl+F5 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+FOLDER_NAME = "PYAPI-152" #Folder name
 
+def get_image_with_text(text):
+    url = "https://cataas.com/cat/says"
+    params = {'text': text}
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
+    try:
+        print(f"Requesting image with text: '{text}'...")
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        print(f"Image successfully requested.")
+        return response.content
+    except requests.exceptions.RequestException as e:
+        print(f"Error occured: {e}")
+        return None
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
