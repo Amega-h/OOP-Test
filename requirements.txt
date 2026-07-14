@@ -1,0 +1,7 @@
+This code requires library "requests" for work.
+
+Better to work through your virtual enviroment such as venv
+
+- venv\Scripts\activate
+
+- python main.py
